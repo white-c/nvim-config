@@ -29,6 +29,8 @@ autocmd BufNewFile,BufRead *.py
     \setlocal autoindent
     \setlocal formatoptions=croql
 
+autocmd BufNewFile,BufRead *.[q]\=md
+    \setlocal textwidth=80
 
 autocmd BufNewFile,BufRead *.tcl
     \ setlocal textwidth=80
