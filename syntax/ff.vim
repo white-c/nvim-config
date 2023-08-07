@@ -10,11 +10,14 @@ if exists("b:current_syntax")
   finish
 endif
 
+set foldmethod=syntax
+set nofoldenable
+
 " Comment character
 syn match   ffComment	"#.*$" 
 
 " Specific Keywords
-"syn case ignore
+syn case ignore
 syn keyword ffCategories MATERIALS 
 syn keyword ffCategories STACKUP 
 syn keyword ffCategories POLYGONS 
@@ -30,18 +33,17 @@ syn keyword ffCategories PINGROUP
 syn keyword ffCategories PORTS 
 syn keyword ffCategories SETUP 
 syn keyword ffCategories OUTPUTS 
-"syn case match
 
 " Open and Close Sections
-"syn match ffBegin '/^\.BEGIN.\+$/i' contains=ffCategories
-"syn match ffEnd '/^\.END.\+$/i' contains=ffCategories
+" syn match ffBegin '/^\.BEGIN.\+$/i' contains=ffCategories
+" syn match ffEnd '/^\.END.\+$/i' contains=ffCategories
 
 " Match regions
-"syn region ffBlock start='/^\.BEGIN/i' end='^\.END/i' fold transparent
+syn region ffBlock start=/\.BEGIN/ end=/\.END/ fold transparent
+syn case match
 
 hi def link ffComment   Comment
 hi def link ffCategories Statement
-"hi def link ffBegin     Statement
-"hi def link ffEnd       Statement
+hi def link ffBlock     Function
 
 let b:current_syntax = "ff"
