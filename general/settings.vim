@@ -86,7 +86,7 @@ set autoindent                          " Good auto indent
 
 set laststatus=0                        " Always display the status line
 
-set number                              " Line numbers
+set relativenumber                      " Line numbers
 
 set cursorline                          " Enable highlighting of the current line
 
